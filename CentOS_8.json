@@ -14,7 +14,7 @@
     "vm_memory": "2048",
 
     "ssh_username" : "root",
-    "ssh_password" : "P@ssword"
+    "ssh_password" : "{{user  `linux_pass`  }}"
   
   },
   "builders": [
