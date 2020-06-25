@@ -28,6 +28,7 @@
       "username": "{{user  `vcenter_user`  }}",
       "password": "{{user  `vcenter_pass`  }}",
       "cluster": "{{user  `vcenter_cluster`  }}",
+      "datacenter": "{{user  `vcenter_datacenter`  }}",
 
       "vm_name":  "{{user  `vm_name`  }}",
       "convert_to_template": "true",
