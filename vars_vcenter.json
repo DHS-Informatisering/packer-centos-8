@@ -1,0 +1,5 @@
+{
+    "vcenter_host": "nc-vc-01.nc.local",
+    "vcenter_user": "administrator@vsphere.local",
+    "vcenter_cluster": "Lampegat"
+}
