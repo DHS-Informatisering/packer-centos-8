@@ -16,7 +16,7 @@
     "ssh_username" : "root",
     "ssh_password" : "P@ssword",
 
-    "kickstart_location" : "https://raw.githubusercontent.com/DHS-Informatisering/packer-centos-8/master/CentOS_8/ks.cfg?token=AC4QWR3XZVT7CKBTODCM5JK66RQW2"
+    "kickstart_location" : "https://raw.githubusercontent.com/DHS-Informatisering/packer-centos-8/master/CentOS_8/ks.cfg?token=AC4QWR2QKD6KH5YDRR664OC66RTV6"
   
   },
   "builders": [
