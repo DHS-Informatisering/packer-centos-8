@@ -14,7 +14,9 @@
     "vm_memory": "2048",
 
     "ssh_username" : "root",
-    "ssh_password" : "P@ssword"
+    "ssh_password" : "P@ssword",
+
+    "kickstart_location" : "https://raw.githubusercontent.com/DHS-Informatisering/packer-centos-8/master/CentOS_8/ks.cfg?token=AC4QWR3XZVT7CKBTODCM5JK66RQW2"
   
   },
   "builders": [
@@ -49,7 +51,7 @@
       "ssh_password": "{{user `ssh_password`}}",
 
       "boot_command": [
-        "<up><wait><tab> text ks=https://github.com/MaartenMol/dhs-packer/raw/master/CentOS_8/ks.cfg<enter><wait>"
+        "<up><wait><tab> text ks={{user `kickstart_loation`}}<enter><wait>"
       ],
 
       "shutdown_command": "systemctl poweroff",
