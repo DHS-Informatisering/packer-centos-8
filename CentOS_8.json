@@ -8,8 +8,8 @@
 
     "iso_path": "[H_LUN_ISO] ISO/Linux/CentOS-8.2.2004-x86_64-dvd1.iso",
 
-    "vm_cpu_sockets": "1",
-    "vm_cpu_cores": "2",
+    "vm_cpu_sockets": "2",
+    "vm_cpu_cores": "1",
     "vm_disk_size": "51200",
     "vm_memory": "2048",
 
@@ -40,7 +40,7 @@
       "datastore": "{{user  `vm_datastore`  }}",
       "disk_size": "{{user  `vm_disk_size`  }}",
       "disk_controller_type":  "lsilogic",
-      "disk_thin_provisioned": true,
+      "disk_thin_provisioned": false,
 
       "boot_wait": "10s",
       "iso_paths": [ "{{user  `iso_path`  }}"],
