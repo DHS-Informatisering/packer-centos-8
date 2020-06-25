@@ -1,0 +1,70 @@
+{
+  "variables": {
+
+    "vcenter_cluster": "NC-CLS-02",
+    "vcenter_datacenter": "Oeteldonk",
+
+    "vm_name": "CentOS8-AutoTemplate",
+    "vm_folder": "_NC-Servers/Templates",
+    "vm_switch": "NC-LAN",
+    "vm_datastore": "VNX2-LUN01",
+
+    "iso_path": "[VNX2-LUN01] ISO/CentOS-8.2.2004-x86_64-dvd1.iso",
+
+    "vm_cpu_sockets": "2",
+    "vm_cpu_cores": "1",
+    "vm_disk_size": "51200",
+    "vm_memory": "2048",
+
+    "ssh_username" : "root",
+    "ssh_password" : "{{user  `linux_pass`  }}"
+  
+  },
+  "builders": [
+    {
+      "type": "vsphere-iso",
+
+      "vcenter_server": "{{user  `vcenter_host`  }}",
+      "insecure_connection": "true",
+      "username": "{{user  `vcenter_user`  }}",
+      "password": "{{user  `vcenter_pass`  }}",
+      "cluster": "{{user  `vcenter_cluster`  }}",
+      "datacenter": "{{user  `vcenter_datacenter`  }}",
+
+      "vm_name":  "{{user  `vm_name`  }}",
+      "convert_to_template": "true",
+      "folder": "{{user  `vm_folder`  }}",
+      "CPUs": "{{user  `vm_cpu_sockets`  }}",
+      "cpu_cores": "{{user  `vm_cpu_cores`  }}",
+      "RAM": "{{user  `vm_memory`  }}",
+      "network": "{{user  `vm_switch`  }}",
+      "network_card": "vmxnet3",
+      "guest_os_type": "centos8_64Guest",
+      "datastore": "{{user  `vm_datastore`  }}",
+      "disk_size": "{{user  `vm_disk_size`  }}",
+      "disk_controller_type":  "lsilogic",
+      "disk_thin_provisioned": false,
+
+      "boot_wait": "10s",
+      "iso_paths": [ "{{user  `iso_path`  }}"],
+
+      "communicator":"ssh",
+      "ssh_username": "{{user `ssh_username`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+
+      "boot_command": [
+        "<up><wait><tab> text ks=https://raw.githubusercontent.com/DHS-Informatisering/packer-centos-8/master/CentOS_8/ks.cfg<enter><wait>"
+      ],
+
+      "shutdown_command": "systemctl poweroff",
+      "shutdown_timeout": "30m"
+    }
+  ],
+
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "{{template_dir}}/CentOS_8/cleanup.sh"
+    }
+  ]
+}

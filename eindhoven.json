@@ -1,6 +1,9 @@
 {
   "variables": {
 
+    "vcenter_cluster": "NC-CLS-01",
+    "vcenter_datacenter": "Lampegat",
+
     "vm_name": "CentOS8-AutoTemplate",
     "vm_folder": "_NC-Servers/Templates",
     "vm_switch": "NC-Management",

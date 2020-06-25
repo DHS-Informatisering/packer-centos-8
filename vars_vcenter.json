@@ -1,6 +1,4 @@
 {
     "vcenter_host": "nc-vc-01.nc.local",
-    "vcenter_user": "svc_ansible@nc.local",
-    "vcenter_cluster": "NC-CLS-01",
-    "vcenter_datacenter": "Lampegat"
+    "vcenter_user": "svc_ansible@nc.local"
 }
