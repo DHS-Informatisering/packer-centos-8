@@ -64,6 +64,15 @@
   "provisioners": [
     {
       "type": "shell",
+      "inline": ["mkdir /etc/custom_motd/"]
+    },
+    {
+      "type": "file",
+      "source": "{{template_dir}}/CentOS_8/motd.sh",
+      "destination": "/etc/custom_motd/motd.sh"
+    },
+    {
+      "type": "shell",
       "script": "{{template_dir}}/CentOS_8/cleanup.sh"
     }
   ]
